@@ -37,8 +37,7 @@ class KodiTracker(tracker.TrackerBase):
     def __init__(self, messenger, tracker_list, config, watch_dirs, redirections=None):
         self.config = config
 
-        self.host_port = "{}:{}".format(
-            self.config['kodi_host'], self.config['kodi_port'])
+        self.host_port = self.config['kodi_host'] + (":"+self.config['kodi_port'] if self.config['kodi_port'] else "")
         self.status_log = [None, None]
         self.headers = {'content-type': 'application/json'}
         super().__init__(messenger, tracker_list, config, watch_dirs, redirections)
