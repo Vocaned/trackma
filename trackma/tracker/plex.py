@@ -38,7 +38,7 @@ class PlexTracker(tracker.TrackerBase):
     def __init__(self, messenger, tracker_list, config, watch_dirs, redirections=None):
         self.config = config
 
-        self.host_port = self.config['plex_host']+(":"+self.config['plex_port'] if self.config['plex_port'] else "")
+        self.host_port = self.config['plex_host']+(":"+self.config['plex_port'] if self.config['plex_port'] != "0" else "")
         self.status_log = [None, None]
         self.token = self._get_plex_token()
         self.http_protocol = 'https://' if self.config['plex_ssl'] else 'http://'

@@ -36,7 +36,7 @@ class JellyfinTracker(tracker.TrackerBase):
     def __init__(self, messenger, tracker_list, config, watch_dirs, redirections=None):
         self.config = config
 
-        self.host_port = self.config['jellyfin_host'] + (":"+self.config['jellyfin_port'] if self.config['jellyfin_port'] else "")
+        self.host_port = self.config['jellyfin_host'] + (":"+self.config['jellyfin_port'] if self.config['jellyfin_port'] != "0" else "")
         self.api_key = self.config['jellyfin_api_key']
         self.username = self.config['jellyfin_user']
 
